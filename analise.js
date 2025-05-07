@@ -61,9 +61,21 @@ function atualizarQuantidadeLivros(leitor, valorNovo) {
 
 // Gerar um resumo, verificando se a meta foi atingida, páginas lidas, meta mensal e gênero favorito
 function gerarResumo(leitor) {
-
+    // posso fazer alternativa criando uma variavel para ele, ou colocar direto a function
+    // const metaAtingida = atingiuMetaMensal(leitor);
+    return `${leitor.nome} ${atingiuMetaMensal(leitor) ? "atingiu" : "não atingiu"} sua meta mensal, leu ${leitor.totalPaginas} páginas e sua meta era de ${leitor.metaMensal} páginas. Seu gênero favorito é ${leitor.generoPreferido}.`
 }
 
+// Filtrar os leitores que preferem um gênero específico (Teste com Ficção).
+function filtrarGeneroEspecifico (leitores, genero) {
+    return leitores.filter(leitor => leitor.generoPreferido === genero);
+}
+
+// Calcular a média de páginas lidas por todos os leitores.
+
+function calcularMediaPaginasTodosLeitores (leitores) {
+    
+}
 
 module.exports = {
     totalPaginasLidas,
@@ -73,5 +85,7 @@ module.exports = {
     diasComLeituraTodosDias,
     atingiuMetaMensal,
     atualizarQuantidadeLivros,
-    gerarResumo
+    gerarResumo,
+    filtrarGeneroEspecifico,
+    calcularMediaPaginasTodosLeitores
 }
