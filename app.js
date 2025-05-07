@@ -8,8 +8,10 @@ const {
     atualizarQuantidadeLivros,
     gerarResumo,
     filtrarGeneroEspecifico,
-    calcularMediaPaginasTodosLeitores
-
+    calcularMediaPaginasTodosLeitores,
+    identificarLeitorMaisLido,
+    ordenarLeitores
+    
 } = require("./analise");
 
 const paginasLidas = [10, 20, 0, 15, 30, 5, 0, 25, 0, 25, 54, 18, 14, 0];
@@ -87,3 +89,5 @@ console.log("Etapa 3 - Análise de múltiplos leitores");
 console.log("===============================================");
 console.log("\nLeitores atualizados: ", leitoresAtualizados);
 console.log("\nLeitores filtrado por genero Romance: ",filtrarGeneroEspecifico(leitoresAtualizados, "Romance"));
+console.log("\nMédia de páginas lidas por todos leitores: ", calcularMediaPaginasTodosLeitores(leitoresAtualizados));
+console.log("\nLeitor que mais leu páginas foi: ", identificarLeitorMaisLido(leitoresAtualizados));
