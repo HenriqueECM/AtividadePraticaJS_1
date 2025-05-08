@@ -99,6 +99,39 @@ function identificarLeitorMaisLido (leitores) {
 // Ordenar os leitores com base na quantidade de livros lidos (do menor para o maior).
 function ordenarLeitores (leitores) {
     // utilizar sort
+    return leitores.sort((a, b) => a.livrosLidos - b.livrosLidos);
+}
+
+// Verificar se todos os leitores atingiram sua meta mensal.
+function verificarMetaMensal (leitores) {
+    for (let i = 0; i < leitores.length; i++){
+        if (!atingiuMetaMensal(leitores[i])){
+            return false;
+        }
+    }
+    return true;
+
+    /* podemos utilizar alternativa de .every()
+    return leitores.every(atingiuMetaMensal);
+    */
+}
+
+// Verificar se pelo menos um leitor atingiu sua meta mensal.
+function verificarSeAlgumLeitorAtingiuMetaMensal (leitores) {
+    // ele vai fazer loop para verificar cada leitor e ver se algum atingiu a meta mensal
+    for (let i = 0; i < leitores.length; i++){
+        // se algum leitor atingir a meta mensal, ele retorna true atravez da função que tinha criado na questão anterior
+        if (atingiuMetaMensal(leitores[i])){
+            return true;
+        }
+    }
+    return false;
+}
+
+// Gerar um resumo para cada leitor no formato proposto:
+function gerarResumoCadaLeitor(leitores) {
+    // Cria um novo array com os resultados da chamada de uma função criada que é "gerarResumo" para cada elemento do array.
+    return leitores.map(leitor => gerarResumo(leitor));
 }
 
 module.exports = {
@@ -113,5 +146,8 @@ module.exports = {
     filtrarGeneroEspecifico,
     calcularMediaPaginasTodosLeitores,
     identificarLeitorMaisLido,
-    ordenarLeitores
+    ordenarLeitores,
+    verificarMetaMensal,
+    verificarSeAlgumLeitorAtingiuMetaMensal,
+    gerarResumoCadaLeitor
 }

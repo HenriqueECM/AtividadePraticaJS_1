@@ -10,7 +10,10 @@ const {
     filtrarGeneroEspecifico,
     calcularMediaPaginasTodosLeitores,
     identificarLeitorMaisLido,
-    ordenarLeitores
+    ordenarLeitores,
+    verificarMetaMensal,
+    verificarSeAlgumLeitorAtingiuMetaMensal,
+    gerarResumoCadaLeitor
     
 } = require("./analise");
 
@@ -91,3 +94,7 @@ console.log("\nLeitores atualizados: ", leitoresAtualizados);
 console.log("\nLeitores filtrado por genero Romance: ",filtrarGeneroEspecifico(leitoresAtualizados, "Romance"));
 console.log("\nMédia de páginas lidas por todos leitores: ", calcularMediaPaginasTodosLeitores(leitoresAtualizados));
 console.log("\nLeitor que mais leu páginas foi: ", identificarLeitorMaisLido(leitoresAtualizados));
+console.log("\nLeitores ordenados de forma crescente por livros lidos: ", ordenarLeitores(leitoresAtualizados));
+console.log("\nTodos os leitores atingiram meta mensal? ", verificarMetaMensal(leitoresAtualizados));
+console.log("\nPelo menos um leitor atingiu a sua meta mensal? ", verificarSeAlgumLeitorAtingiuMetaMensal(leitoresAtualizados));
+console.log("\nResumo de todos os leitores: ", gerarResumoCadaLeitor(leitoresAtualizados));
