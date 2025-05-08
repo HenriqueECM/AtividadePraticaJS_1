@@ -134,6 +134,23 @@ function gerarResumoCadaLeitor(leitores) {
     return leitores.map(leitor => gerarResumo(leitor));
 }
 
+// Atualizar os dados da leitora Fernanda, alterando Livros Lidos para 12, Total de Paginas: 750
+function atualizarLeitor (leitores, nomeLeitor , novosLivrosLidos, novosTotalPaginas) {
+    const leitor = leitores.find(leitor => leitor.nome === nomeLeitor);
+    if (leitor) {
+        leitor.livrosLidos = novosLivrosLidos;
+        leitor.totalPaginas = novosTotalPaginas;
+        return leitor;
+    }
+    return null;
+}
+
+// Gere um resumo apenas para a leitora Fernanda
+function resumoFernanda(leitores) {
+    const fernanda = leitores.find(leitor => leitor.nome === "Fernanda");
+    return gerarResumo(fernanda);
+}
+
 module.exports = {
     totalPaginasLidas,
     diasSemLeitura,
@@ -149,5 +166,7 @@ module.exports = {
     ordenarLeitores,
     verificarMetaMensal,
     verificarSeAlgumLeitorAtingiuMetaMensal,
-    gerarResumoCadaLeitor
+    gerarResumoCadaLeitor,
+    atualizarLeitor,
+    resumoFernanda
 }

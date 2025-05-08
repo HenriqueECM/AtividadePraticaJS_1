@@ -13,7 +13,9 @@ const {
     ordenarLeitores,
     verificarMetaMensal,
     verificarSeAlgumLeitorAtingiuMetaMensal,
-    gerarResumoCadaLeitor
+    gerarResumoCadaLeitor,
+    atualizarLeitor,
+    resumoFernanda
     
 } = require("./analise");
 
@@ -98,3 +100,5 @@ console.log("\nLeitores ordenados de forma crescente por livros lidos: ", ordena
 console.log("\nTodos os leitores atingiram meta mensal? ", verificarMetaMensal(leitoresAtualizados));
 console.log("\nPelo menos um leitor atingiu a sua meta mensal? ", verificarSeAlgumLeitorAtingiuMetaMensal(leitoresAtualizados));
 console.log("\nResumo de todos os leitores: ", gerarResumoCadaLeitor(leitoresAtualizados));
+console.log("\nAtualizando dados da fernanda: ", atualizarLeitor (leitoresAtualizados, "Fernanda", 12, 750));
+console.log("\nResumo da Fernanda: ", resumoFernanda(leitoresAtualizados));
